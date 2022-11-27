@@ -60,7 +60,10 @@ export default class App extends Component {
         {images.length !== 0 && (
           <ImageGallery images={images} onClick={this.onImageClick} />
         )}
-        {images.length !== 0 && <Button onClick={this.getData} />}
+        {images.length === 0 || images.length < 12 ? null : (
+          <Button onClick={this.getData} />
+        )}
+
         {loading && <Loader />}
         {isModalOpen && (
           <Modal image={largeImage} onToggle={this.toggleModal} />
